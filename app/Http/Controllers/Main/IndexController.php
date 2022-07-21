@@ -9,7 +9,7 @@ class IndexController extends Controller
 {
     public function __invoke()
     {
-        return 't';
+        return view('main.index');
     }
     
     // public function index()
