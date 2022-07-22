@@ -13,7 +13,11 @@ Route::group(['namespace' => 'App\Http\Controllers\Main'], function () {
 
 Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => 'admin'], function () {
     Route::group(['namespace' => 'Main'], function () {
-        Route::get('/', \IndexController::class)->name('index');
+        Route::get('/', \IndexController::class)->name('admin.main.index');
+    });
+    Route::group(['namespace' => 'Category', 'prefix' => 'categories'], function () {
+        Route::get('/', \IndexController::class)->name('admin.category.index');
+        Route::get('/create', \CreateController::class)->name('admin.category.create');
     });
 });
 
