@@ -12,8 +12,4 @@ class IndexController extends Controller
         return view('main.index');
     }
     
-    // public function index()
-    // {
-    //     return 'aaaa1';
-    // }
 }
