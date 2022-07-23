@@ -25,11 +25,12 @@
         <!-- Main row -->
         <div class="row">
         
-        <form class="col-4" action="#">
+        <form class="col-4" action="{{ route('admin.category.store') }}" method="POST">
+          @csrf
           <div class="card-body">
             <div class="form-group">
               <label for="title">Название категории</label>
-              <input type="text" class="form-control" id="title" placeholder="Enter category name">
+              <input type="text" class="form-control" id="title" name="title" placeholder="Enter category name">
             </div>
           </div>
           <!-- /.card-body -->
