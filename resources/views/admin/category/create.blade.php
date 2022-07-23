@@ -31,6 +31,10 @@
             <div class="form-group">
               <label for="title">Название категории</label>
               <input type="text" class="form-control" id="title" name="title" placeholder="Enter category name">
+              @error('title')
+              <div class="text-danger">Это поле является обязательным</div>
+              <div class="text-danger">{{ $message }}</div>
+              @enderror
             </div>
           </div>
           <!-- /.card-body -->
