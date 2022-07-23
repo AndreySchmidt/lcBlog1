@@ -116,8 +116,20 @@
                     <td>{{ $category->title }}</td>
                   </tr>
                   <tr>
-                    <td>Действие</td>
-                    <td><a href="{{ route('admin.category.edit', $category->id) }}"><i class="fas fa-pencil-alt"></i></a></td>
+                    <td>Редактировать</td>
+                    <td>
+                      <a href="{{ route('admin.category.edit', $category->id) }}"><i class="fas fa-pencil-alt"></i></a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Удалить</td>
+                    <td>
+                      <form action="{{ route('admin.category.delete', $category->id) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="border-0 bg-white"><i class="fas fa-trash text-danger" role="button"></i></button>
+                      </form>
+                    </td>
                   </tr>
                   </tbody>
                 </table>
