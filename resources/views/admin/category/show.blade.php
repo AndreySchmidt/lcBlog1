@@ -115,6 +115,10 @@
                     <td>Title</td>
                     <td>{{ $category->title }}</td>
                   </tr>
+                  <tr>
+                    <td>Действие</td>
+                    <td><a href="{{ route('admin.category.edit', $category->id) }}"><i class="fas fa-pencil-alt"></i></a></td>
+                  </tr>
                   </tbody>
                 </table>
               </div>
