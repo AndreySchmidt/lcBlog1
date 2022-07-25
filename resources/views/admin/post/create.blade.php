@@ -25,7 +25,7 @@
         <!-- Main row -->
         <div class="row">
         
-        <form class="col-4" action="{{ route('admin.post.store') }}" method="POST">
+        <form class="col-6" action="{{ route('admin.post.store') }}" method="POST">
           @csrf
           <div class="card-body">
             <div class="form-group">
@@ -35,6 +35,7 @@
               <div class="text-danger">Это поле является обязательным</div>
               <div class="text-danger">{{ $message }}</div>
               @enderror
+              <div class="form-group m-3"><textarea class="form-control" id="summernote" name="content"></textarea></div>
             </div>
           </div>
           <!-- /.card-body -->
