@@ -40,9 +40,9 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="pages/gallery.html" class="nav-link">
-              <i class="nav-icon far fa-image"></i>
-              <p>Gallery</p></a>
+            <a href="{{ route('admin.tag.index') }}" class="nav-link">
+              <i class="nav-icon fas fa-tag"></i>
+              <p>Тэги</p></a>
           </li>
           <li class="nav-item">
             <a href="pages/kanban.html" class="nav-link">
