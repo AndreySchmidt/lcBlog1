@@ -45,9 +45,9 @@
               <p>Тэги</p></a>
           </li>
           <li class="nav-item">
-            <a href="pages/kanban.html" class="nav-link">
+            <a href="{{ route('admin.post.index') }}" class="nav-link">
               <i class="nav-icon fas fa-columns"></i>
-              <p>Kanban Board</p>
+              <p>Посты</p>
             </a>
           </li>
           <!-- Add icons to the links using the .nav-icon class
