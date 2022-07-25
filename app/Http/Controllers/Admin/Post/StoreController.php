@@ -20,8 +20,14 @@ class StoreController extends Controller
         // $previewImagePath = Storage::put('/images', $previewImage);
         // $mainImagePath = Storage::put('/images', $mainImage);
 
-        $data['preview_image'] = Storage::put('/images', $data['preview_image']);
-        $data['main_image'] = Storage::put('/images', $data['main_image']);
+        if( isset($data['preview_image']) )
+        {
+            $data['preview_image'] = Storage::put('/images', $data['preview_image']);
+        }
+        if( isset($data['main_image']) )
+        {
+            $data['main_image'] = Storage::put('/images', $data['main_image']);
+        }
 
         Post::firstOrCreate($data);
 

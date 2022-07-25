@@ -73,6 +73,17 @@
                 </div>
               </div>
             </div>
+
+            <div class="form-group">
+              <label>Выберите категорию</label>
+              <select name = "category_id" class="form-control">
+                @foreach($categories as $category)
+                <option
+                {{ $category->id == old('category_id')? 'selected' : '' }}
+                value = "{{ $category->id }}">{{ $category->title }}</option>
+                @endforeach
+              </select>
+            </div>
             
           </div>
           <!-- /.card-body -->

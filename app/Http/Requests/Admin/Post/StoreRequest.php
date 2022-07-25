@@ -24,6 +24,8 @@ class StoreRequest extends FormRequest
     public function rules()
     {
         return [
+            // 'exists:categories,id' это значит, что значение категории должно быть в таблице categories в столбце id
+            'category_id' => 'exists:categories,id',
             'title' => 'required|string',
             'content' => 'required|string',
             'preview_image' => 'file',
