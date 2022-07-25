@@ -30,12 +30,18 @@
           <div class="card-body">
             <div class="form-group">
               <label for="title">Название поста</label>
-              <input type="text" class="form-control" id="title" name="title" placeholder="Enter post name">
+              <input type="text" class="form-control" id="title" name="title" placeholder="Enter post name" value = "{{ old('title') }}">
               @error('title')
               <div class="text-danger">Это поле является обязательным</div>
               <div class="text-danger">{{ $message }}</div>
               @enderror
-              <div class="form-group m-3"><textarea class="form-control" id="summernote" name="content"></textarea></div>
+              <div class="form-group m-3">
+                <textarea class="form-control" id="summernote" name="content">{{ old('content') }}</textarea>
+                @error('content')
+                <div class="text-danger">Это поле является обязательным</div>
+                <div class="text-danger">{{ $message }}</div>
+                @enderror
+              </div>
             </div>
           </div>
           <!-- /.card-body -->
