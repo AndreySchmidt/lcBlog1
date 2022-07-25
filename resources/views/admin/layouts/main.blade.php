@@ -228,6 +228,14 @@
 <script src="{{asset('dist/js/demo.js')}}"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{asset('dist/js/pages/dashboard.js')}}"></script>
+<!-- file upload -->
+<script src="{{asset('plugins/bs-custom-file-input/bs-custom-file-input.min.js')}}"></script>
+<script>
+$(function () {
+  bsCustomFileInput.init();
+});
+</script>
+
 <script>
   $(document).ready(function() {
     $('#summernote').summernote(
