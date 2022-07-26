@@ -85,6 +85,17 @@
               </select>
             </div>
             
+            <div class="form-group">
+              <label>Тэги</label>
+              <select multiple="" name = "tag_ids[]" class="form-control">
+                @foreach($tags as $tag)
+                  <option
+                  {{ is_array( old('tag_ids') ) && in_array( $tag->id, old('tag_ids') )? 'selected' : '' }}
+                  value = "{{ $tag->id }}">{{ $tag->title }}</option>
+                @endforeach
+              </select>
+            </div>
+
           </div>
           <!-- /.card-body -->
 

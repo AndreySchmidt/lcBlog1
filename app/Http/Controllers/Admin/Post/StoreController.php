@@ -20,16 +20,33 @@ class StoreController extends Controller
         // $previewImagePath = Storage::put('/images', $previewImage);
         // $mainImagePath = Storage::put('/images', $mainImage);
 
-        if( isset($data['preview_image']) )
+        $tagIds = [];
+        if( isset($data['tag_ids']) )
         {
-            $data['preview_image'] = Storage::put('/images', $data['preview_image']);
-        }
-        if( isset($data['main_image']) )
-        {
-            $data['main_image'] = Storage::put('/images', $data['main_image']);
+            $tagIds = $data['tag_ids'];
+            unset($data['tag_ids']);
         }
 
-        Post::firstOrCreate($data);
+
+        // пихаем в транзакции ибо несколько таблиц и они со связанными записями
+        //TODO стоит ее добавить, ибо трай не особо  решает 
+        try
+        {
+            if( isset($data['preview_image']) )
+            {
+                $data['preview_image'] = Storage::put('/images', $data['preview_image']);
+            }
+            if( isset($data['main_image']) )
+            {
+                $data['main_image'] = Storage::put('/images', $data['main_image']);
+            }
+    
+            $post = Post::firstOrCreate($data);
+            $post->tags()->attach($tagIds);
+        }
+        catch (\Exception $exception) {
+            abort(404);
+        }
 
         return redirect()->route('admin.post.index');
     }
