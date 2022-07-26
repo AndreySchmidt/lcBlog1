@@ -10,6 +10,7 @@ class DeleteController extends Controller
 {
     public function __invoke(Post $post)
     {
+        //Удаление файлов картинок забыл сделать
         $post->delete();
         return redirect()->route('admin.post.index');
     }
