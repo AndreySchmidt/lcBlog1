@@ -116,6 +116,10 @@
                     <td>{{ $user->name }}</td>
                   </tr>
                   <tr>
+                    <td>Email</td>
+                    <td>{{ $user->email }}</td>
+                  </tr>
+                  <tr>
                     <td>Редактировать</td>
                     <td>
                       <a href="{{ route('admin.user.edit', $user->id) }}"><i class="fas fa-pencil-alt"></i></a>

@@ -29,13 +29,29 @@
           @csrf
           <div class="card-body">
             <div class="form-group">
-              <label for="name">Название пользователя</label>
-              <input type="text" class="form-control" id="name" name="name" placeholder="Enter user name">
+              <label for="name">Имя пользователя</label>
+              <input type="text" class="form-control" id="name" name="name" placeholder="Enter user name" value = "{{ old('name') }}" />
               @error('name')
-              <div class="text-danger">Это поле является обязательным</div>
               <div class="text-danger">{{ $message }}</div>
               @enderror
             </div>
+
+            <div class="form-group">
+              <label for="email">Email </label>
+              <input type="text" class="form-control" id="email" name="email" placeholder="Enter user email" value = "{{ old('email') }}" />
+              @error('email')
+              <div class="text-danger">{{ $message }}</div>
+              @enderror
+            </div>
+
+            <div class="form-group">
+              <label for="password">Пароль</label>
+              <input type="password" class="form-control" id="password" name="password" placeholder="Enter user password">
+              @error('password')
+              <div class="text-danger">{{ $message }}</div>
+              @enderror
+            </div>
+
           </div>
           <!-- /.card-body -->
 

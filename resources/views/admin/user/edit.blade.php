@@ -33,11 +33,21 @@
               <label for="name">Название категории</label>
               <input type="text" class="form-control" id="name" name="name" placeholder="Enter user name" value="{{ $user->name }}">
               @error('name')
-              <div class="text-danger">Это поле является обязательным</div>
               <div class="text-danger">{{ $message }}</div>
               @enderror
             </div>
           </div>
+
+          <div class="card-body">
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="text" class="form-control" id="email" name="email" placeholder="Enter user email" value="{{ $user->email }}">
+              @error('email')
+              <div class="text-danger">{{ $message }}</div>
+              @enderror
+            </div>
+          </div>
+
           <!-- /.card-body -->
 
           <div class="card-footer">
