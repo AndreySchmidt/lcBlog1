@@ -28,6 +28,20 @@
         <form class="col-4" action="{{ route('admin.user.update', $user->id) }}" method="POST">
           @csrf
           @method('PATCH')
+
+          <input type="hidden" name="user_id" value="{{ $user->id }}" />
+
+          <div class="form-group">
+              <label>Роль пользователя</label>
+              <select name = "role" class="form-control">
+                @foreach($roles as $key => $role)
+                <option
+                {{ $key == $user->role? 'selected' : '' }}
+                value = "{{ $key }}">{{ $role }}</option>
+                @endforeach
+              </select>
+            </div>
+
           <div class="card-body">
             <div class="form-group">
               <label for="name">Название категории</label>

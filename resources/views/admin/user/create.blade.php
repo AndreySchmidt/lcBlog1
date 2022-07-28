@@ -28,6 +28,18 @@
         <form class="col-4" action="{{ route('admin.user.store') }}" method="POST">
           @csrf
           <div class="card-body">
+
+            <div class="form-group">
+              <label>Роль пользователя</label>
+              <select name = "role" class="form-control">
+                @foreach($roles as $key => $role)
+                <option
+                {{ $key == old('role')? 'selected' : '' }}
+                value = "{{ $key }}">{{ $role }}</option>
+                @endforeach
+              </select>
+            </div>
+
             <div class="form-group">
               <label for="name">Имя пользователя</label>
               <input type="text" class="form-control" id="name" name="name" placeholder="Enter user name" value = "{{ old('name') }}" />

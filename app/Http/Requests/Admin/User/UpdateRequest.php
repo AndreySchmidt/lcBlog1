@@ -24,8 +24,11 @@ class UpdateRequest extends FormRequest
     public function rules()
     {
         return [
+            'role' => 'required|integer',
             'name' => 'required|string',
-            'email' => 'required|string|email|unique:users',
+            'email' => 'required|string|email|unique:users,email,' . $this->user_id,
+            'user_id' => 'required|integer|exists:users,id' // hidden поле для проверки email
+            // 'email' => 'required|string|email|unique:users', не проходит апдейт из-за unique:users похоже .. добавлю хидден во вью и буду проверять по нему
             // пароль менять в апдейте я не буду, поэтому не пропускаю поле 'password' => 'required|string'
         ];
     }
