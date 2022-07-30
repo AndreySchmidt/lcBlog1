@@ -5,8 +5,8 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
-
 // Route::get('/', [App\Http\Controllers\Main\IndexController::class, 'index'])->name('index');
+
 Route::group(['namespace' => 'App\Http\Controllers\Main'], function () {
     Route::get('/', \IndexController::class)->name('index');
 });
@@ -19,6 +19,9 @@ Route::group(['namespace' => 'App\Http\Controllers\Personal', 'prefix' => 'perso
     });
     Route::group(['namespace' => 'Comment', 'prefix' => 'comment'], function () {
         Route::get('/', \IndexController::class)->name('personal.comment.index');
+        Route::delete('/{comment}', \DeleteController::class)->name('personal.comment.delete');
+        Route::patch('/{comment}', \UpdateController::class)->name('personal.comment.update');
+        Route::get('/{comment}/edit', \EditController::class)->name('personal.comment.edit');
     });
     Route::group(['namespace' => 'Main'], function () {
         Route::get('/', \IndexController::class)->name('personal.main.index');

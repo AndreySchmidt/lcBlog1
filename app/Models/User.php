@@ -10,6 +10,7 @@ use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 use App\Models\Post;
+use App\Models\Comment;
 
 class User extends Authenticatable
 {
@@ -30,6 +31,11 @@ class User extends Authenticatable
     public function likedPosts()
     {
         return $this->belongsToMany(Post::class, 'post_user_likes', 'user_id', 'post_id');
+    }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class, 'user_id', 'id');
     }
 
     /**

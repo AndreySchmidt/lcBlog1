@@ -2,7 +2,7 @@
     <!-- Brand Logo -->
     <a href="{{ route('personal.main.index') }}" class="brand-link">
       <img src="{{asset('dist/img/AdminLTELogo.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">Личный каинет</span>
+      <span class="brand-text font-weight-light">Личный кабинет</span>
     </a>
 
     <!-- Sidebar -->
