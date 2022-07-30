@@ -4,11 +4,11 @@
 <div><a href = "{{ route('main.index') }}" >Blog</a></div>
 <div style="display:flex;">
     <div>
-        <div><strong>Посты с пагинацией (в доках он в Database -> Pagination)</strong></div>
+        <div><strong>Посты with пагинацией (в доках он в Database -> Pagination)</strong></div>
         @foreach($posts as $post)
         <div>
             <div><img src = "storage/{{ $post->preview_image }}"></div>
-            <div>{{ $post->title }}</div>
+            <div><a href = "{{ route('post.show', $post->id) }}">{{ $post->title }}</a></div>
             <div>Эта штука дергается из модели пост методом category: {{ $post->category->title?? 'No category' }}</div>
         </div>
         @endforeach
