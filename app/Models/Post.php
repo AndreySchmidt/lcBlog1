@@ -18,6 +18,7 @@ class Post extends Model
 
     protected $table = 'posts';
     protected $guarded = false;
+    protected $withCount = ['likedUsers']; // liked_users_count появится в выдаче
 
     public function tags(){
         // надо указать таблицу пивот 'post_tags' и внешний ключ 'post_tags', это столбец с которым отношение у поста 'tag_id'

@@ -10,6 +10,22 @@
             <div><img src = "storage/{{ $post->preview_image }}"></div>
             <div><a href = "{{ route('post.show', $post->id) }}">{{ $post->title }}</a></div>
             <div>Эта штука дергается из модели пост методом category: {{ $post->category->title?? 'No category' }}</div>
+            @auth()
+            <div>
+                <form action="{{ route('post.like.store', $post->id) }}" method = "POST">
+                    @csrf
+                    <span>Quan likes: {{ $post->liked_users_count }}</span>
+                    <button type = "submit" class = "border-0 bg-transparent">
+                        @if(auth()->user()->likedPosts->contains($post->id))
+                            <strong>Like</strong>
+                        @else
+                            Like
+                        @endif
+                        
+                    </button>
+                </form>
+            </div>
+            @endauth
         </div>
         @endforeach
 
