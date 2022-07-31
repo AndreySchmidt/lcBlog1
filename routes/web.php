@@ -23,6 +23,15 @@ Route::group(['namespace' => 'App\Http\Controllers\Post', 'prefix' => 'posts'], 
     });
 });
 
+Route::group(['namespace' => 'App\Http\Controllers\Category', 'prefix' => 'categories'], function () {
+    Route::get('/', \IndexController::class)->name('category.index');
+
+    // отдавать те посты, которые принадлежат категории
+    Route::group(['namespace' => 'Post', 'prefix' => '{category}/posts'], function () {
+        Route::get('/', \IndexController::class)->name('category.post.index');
+    });
+});
+
 Route::group(['namespace' => 'App\Http\Controllers\Personal', 'prefix' => 'personal', 'middleware' => ['auth']], function () {
 
     Route::group(['namespace' => 'Liked', 'prefix' => 'liked'], function () {

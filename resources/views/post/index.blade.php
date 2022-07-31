@@ -2,6 +2,8 @@
 @section('content')
 
 <div><a href = "{{ route('main.index') }}" >Blog</a></div>
+<div><a href = "{{ route('category.index') }}" >Category</a></div>
+
 <div style="display:flex;">
     <div>
         <div><strong>Посты with пагинацией (в доках он в Database -> Pagination)</strong></div>
