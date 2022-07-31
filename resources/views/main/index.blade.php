@@ -2,9 +2,11 @@
 @section('content')
 
 <div><a href = "{{ route('main.index') }}" >Blog</a></div>
+
+
 <div style="display:flex;">
     <div>
-        <div><strong>Посты с пагинацией (в доках он в Database -> Pagination)</strong></div>
+        <div><strong>Посты with пагинацией (в доках он в Database -> Pagination)</strong></div>
         @foreach($posts as $post)
         <div>
             <div><img src = "storage/{{ $post->preview_image }}"></div>

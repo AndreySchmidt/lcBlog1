@@ -13,6 +13,11 @@ Route::group(['namespace' => 'App\Http\Controllers\Main'], function () {
 Route::group(['namespace' => 'App\Http\Controllers\Post', 'prefix' => 'posts'], function () {
     Route::get('/', \IndexController::class)->name('post.index');
     Route::get('/{post}', \ShowController::class)->name('post.show');
+    // я добавил в форму коментария <input type = "hidden" name = "post_id" value = "{{ $post->id }}" />
+    // но чтобы не заморачиваться с ним (он не нужен), делаю нестид роутс для комментов и буду брать айди поста, который коментируют из урла
+    Route::group(['namespace' => 'Comment', 'prefix' => '{post}/comments'], function () {
+        Route::post('/', \StoreController::class)->name('post.comment.store');
+    });
 });
 
 Route::group(['namespace' => 'App\Http\Controllers\Personal', 'prefix' => 'personal', 'middleware' => ['auth']], function () {
