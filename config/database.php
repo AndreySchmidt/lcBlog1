@@ -58,6 +58,10 @@ return [
             'prefix_indexes' => true,
             'strict' => true,
             'engine' => null,
+            // 'engine' => InnoDB, для включения типа инноДБ
+            // Schema::create("models", function(Blueprint $table) {// или придеться создавать каждый раз вот так
+            //     $table->engine = "InnoDB";
+            // }
             'options' => extension_loaded('pdo_mysql') ? array_filter([
                 PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
             ]) : [],
